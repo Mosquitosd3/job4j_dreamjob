@@ -25,7 +25,7 @@
     String id = request.getParameter("id");
     Post post = new Post(0, "");
     if (id != null) {
-        post = Store.instOf().findById(Integer.valueOf(id));
+        post = Store.instOf().findByIdPost(Integer.valueOf(id));
     }
 %>
 <div class="container pt-3">
@@ -39,13 +39,13 @@
                 <% } %>
             </div>
             <div class="card-body">
-                <from action="<%request.getContextPath();%>/post/save?id=<%=post.getId()%>" method="post">
+                <form action="<%=request.getContextPath()%>/post/save?id=<%=post.getId()%>" method="post">
                     <div class="form-group">
                         <label>Имя</label>
-                        <input type="text" class="from-control" name="name" value="<%=post.getName()%>">
+                        <input type="text" class="form-control" name="name" value="<%=post.getName()%>">
                     </div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
-                </from>
+                </form>
             </div>
         </div>
     </div>

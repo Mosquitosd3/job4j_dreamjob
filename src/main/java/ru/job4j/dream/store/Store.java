@@ -52,7 +52,11 @@ public class Store {
         candidates.put(candidate.getId(), candidate);
    }
 
-    public Post findById(int id) {
+    public Post findByIdPost(int id) {
         return posts.get(id);
+    }
+
+    public Candidate findByIdCandidate(int id) {
+        return candidates.get(id);
     }
 }
