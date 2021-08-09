@@ -47,6 +47,22 @@
                                 </a>
                                 <c:out value="${candidate.name}"/>
                             </td>
+                            <td>
+                                <img src="<c:url value='/download?name=${candidate.id}'/>" width="100px" height="100px"/>
+                            </td>
+                            <td>
+                                <a href="<c:url value='/PhotoUpload.jsp?id=${candidate.id}'/>"
+                                   class="btn btn-primary btn-sm" role="button">
+                                    Добавить фото
+                                </a>
+                                <br>
+                                <br>
+                                <form action="<c:url value='/candidates.do?id=${candidate.id}&method=delete'/>" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        Удалить кандидата
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>

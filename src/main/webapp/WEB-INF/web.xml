@@ -16,7 +16,23 @@
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>ru.job4j.dream.servlet.IndexServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlet.DownloadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PhotoUpload</servlet-name>
+    <servlet-class>ru.job4j.dream.servlet.PhotoUpload</servlet-class>
+  </servlet>
 
+  <servlet-mapping>
+    <servlet-name>PhotoUpload</servlet-name>
+    <url-pattern>/photoUpload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/download</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>PostServlet</servlet-name>
     <url-pattern>/posts.do</url-pattern>
