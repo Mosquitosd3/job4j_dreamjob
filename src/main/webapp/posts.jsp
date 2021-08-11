@@ -1,7 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="ru.job4j.dream.store.PsqlStore" %>
-<%@ page import="ru.job4j.dream.model.Post" %>
-<%@ page import="java.util.Collection" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <!doctype html>
 <html lang="en">
@@ -24,8 +21,7 @@
 </head>
 <body>
 <div class="container pt-3">
-
-    <div class="row">
+    <jsp:include page="navBar.jsp"/>
         <div class="card" style="width: 100%">
             <div class="card-header">
                 Вакансии

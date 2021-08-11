@@ -27,6 +27,7 @@
 <div class="container pt-3">
 
     <div class="row">
+        <jsp:include page="navBar.jsp"/>
         <div class="card" style="width: 100%">
             <div class="card-header">
                 Кандидаты
