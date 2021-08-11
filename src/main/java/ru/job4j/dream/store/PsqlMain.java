@@ -17,10 +17,10 @@ public class PsqlMain {
         store.findAllPosts().stream().forEach(el -> System.out.println(el.getId() + " " + el.getName()));
         //creat new candidate
         store.save(new Candidate(0, "Java junior"));
-        store.findAllCandidate().stream().forEach(el -> System.out.println(el.getId() + " " + el.getName()));
+        store.findAllCandidates().stream().forEach(el -> System.out.println(el.getId() + " " + el.getName()));
         //update candidate and show all candidates
         store.save(new Candidate(1, "Java middle"));
-        store.findAllCandidate().stream().forEach(el -> System.out.println(el.getId() + " " + el.getName()));
+        store.findAllCandidates().stream().forEach(el -> System.out.println(el.getId() + " " + el.getName()));
         //find by id post and candidate
         Post post = store.findByIdPost(1);
         Candidate candidate = store.findByIdCandidate(1);

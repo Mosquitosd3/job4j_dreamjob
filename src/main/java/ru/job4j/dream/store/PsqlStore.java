@@ -5,6 +5,8 @@ import ru.job4j.dream.model.Post;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,11 +21,17 @@ public class PsqlStore implements Store {
 
     private PsqlStore() {
         Properties cfg = new Properties();
-        try (BufferedReader io = new BufferedReader(new FileReader("bd.properties"))) {
+        ClassLoader loader = this.getClass().getClassLoader();
+        try (InputStream io = loader.getResourceAsStream("bd.properties")) {
             cfg.load(io);
-        } catch (Exception e) {
-          throw new IllegalStateException(e);
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
         }
+//        try (BufferedReader io = new BufferedReader(new FileReader("bd.properties"))) {
+//            cfg.load(io);
+//        } catch (Exception e) {
+//          throw new IllegalStateException(e);
+//        }
         try {
             Class.forName(cfg.getProperty("jdbc.driver"));
         } catch (Exception e) {
@@ -64,7 +72,7 @@ public class PsqlStore implements Store {
     }
 
     @Override
-    public Collection<Candidate> findAllCandidate() {
+    public Collection<Candidate> findAllCandidates() {
         List<Candidate> candidates = new ArrayList<>();
         try (Connection cn = pool.getConnection();
              PreparedStatement ps = cn.prepareStatement("SELECT * FROM candidate")
@@ -201,5 +209,17 @@ public class PsqlStore implements Store {
             e.printStackTrace();
         }
         return candidate;
+    }
+
+    @Override
+    public void removeCandidate(int id) {
+        try (Connection cn = pool.getConnection();
+             PreparedStatement ps = cn.prepareStatement("DELETE FROM candidate c WHERE c.id = ?")
+        ) {
+            ps.setInt(1, id);
+            ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
