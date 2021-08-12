@@ -13,6 +13,8 @@ public interface Store {
 
     Collection<User> findAllUsers();
 
+    User findByEmail(String email);
+
     void save(Post post);
 
     void save(Candidate candidate);
@@ -26,4 +28,6 @@ public interface Store {
     User findByIdUser(int id);
 
     void removeCandidate(int id );
+
+    void removeUser(int id);
 }
