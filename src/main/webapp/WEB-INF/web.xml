@@ -12,6 +12,7 @@
     <filter-name>AuthFilter</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping>
+
   <servlet>
     <servlet-name>PostServlet</servlet-name>
     <servlet-class>ru.job4j.dream.servlet.PostServlet</servlet-class>
@@ -40,7 +41,15 @@
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>ru.job4j.dream.servlet.LogoutServlet</servlet-class>
   </servlet>
-
+  <servlet>
+    <servlet-name>RegServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlet.RegServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>RegServlet</servlet-name>
+    <url-pattern>/reg.do</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout.do</url-pattern>

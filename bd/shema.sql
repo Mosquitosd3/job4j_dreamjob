@@ -11,6 +11,8 @@ CREATE TABLE candidate (
 CREATE TABLE users (
                            id SERIAL PRIMARY KEY,
                            name varchar(255),
-                           email varchar(255),
+                           email varchar(255) UNIQUE ,
                            password varchar(255)
 );
+
+SELECT * FROM users u WHERE u.email= 'root@root';

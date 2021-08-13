@@ -121,12 +121,14 @@ public class PsqlStore implements Store {
             ps.setString(1, email);
             ps.execute();
             try (ResultSet result = ps.executeQuery()) {
-                user = new User(
-                        result.getInt("id"),
-                        result.getString("name"),
-                        result.getString("email"),
-                        result.getString("password")
-                );
+                if (result.next()) {
+                    user = new User(
+                            result.getInt("id"),
+                            result.getString("name"),
+                            result.getString("email"),
+                            result.getString("password")
+                    );
+                }
             }
         } catch (SQLException e) {
             logger.error(e.getMessage(), e);
@@ -205,7 +207,7 @@ public class PsqlStore implements Store {
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());
             ps.execute();
-            try (ResultSet id = ps.executeQuery()) {
+            try (ResultSet id = ps.getGeneratedKeys()) {
                 if(id.next()) {
                     user.setId(id.getInt(1));
                 }
