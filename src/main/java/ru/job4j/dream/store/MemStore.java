@@ -2,6 +2,7 @@ package ru.job4j.dream.store;
 
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.model.Post;
+import ru.job4j.dream.model.User;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -15,9 +16,14 @@ public class MemStore implements Store {
 
     private final Map<Integer, Candidate> candidates = new HashMap<>();
 
+    private final Map<Integer, User> users = new HashMap<>();
+
+
     private static AtomicInteger POST_ID = new AtomicInteger(4);
 
     private static AtomicInteger CANDIDATE_ID = new AtomicInteger(4);
+
+    private static AtomicInteger USER_id = new AtomicInteger(0);
 
     private MemStore() {
         posts.put(1, new Post(1, "Junior java job"));
@@ -42,7 +48,17 @@ public class MemStore implements Store {
         return candidates.values();
    }
 
-   @Override
+    @Override
+    public Collection<User> findAllUsers() {
+        return users.values();
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return users.values().stream().filter(el -> el.getEmail().equals(email)).findFirst().get();
+    }
+
+    @Override
    public void save(Post post) {
        if (post.getId() == 0) {
            post.setId(POST_ID.incrementAndGet());
@@ -58,7 +74,15 @@ public class MemStore implements Store {
         candidates.put(candidate.getId(), candidate);
    }
 
-   @Override
+    @Override
+    public void save(User user) {
+        if (user.getId() == 0) {
+            user.setId(USER_id.incrementAndGet());
+        }
+        users.put(user.getId(), user);
+    }
+
+    @Override
     public Post findByIdPost(int id) {
         return posts.get(id);
     }
@@ -69,7 +93,17 @@ public class MemStore implements Store {
     }
 
     @Override
+    public User findByIdUser(int id) {
+        return users.get(id);
+    }
+
+    @Override
     public void removeCandidate(int id) {
         candidates.remove(id);
+    }
+
+    @Override
+    public void removeUser(int id) {
+        users.remove(id);
     }
 }
