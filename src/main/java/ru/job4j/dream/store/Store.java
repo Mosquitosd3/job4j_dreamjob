@@ -15,11 +15,11 @@ public interface Store {
 
     User findByEmail(String email);
 
-    void save(Post post);
+    Post save(Post post);
 
-    void save(Candidate candidate);
+    Candidate save(Candidate candidate);
 
-    void save(User user);
+    User save(User user);
 
     Post findByIdPost(int id);
 

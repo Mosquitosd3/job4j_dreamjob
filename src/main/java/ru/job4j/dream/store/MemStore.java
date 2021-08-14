@@ -59,27 +59,30 @@ public class MemStore implements Store {
     }
 
     @Override
-   public void save(Post post) {
+   public Post save(Post post) {
        if (post.getId() == 0) {
            post.setId(POST_ID.incrementAndGet());
        }
        posts.put(post.getId(), post);
+       return post;
    }
 
    @Override
-   public void save(Candidate candidate) {
+   public Candidate save(Candidate candidate) {
         if (candidate.getId() == 0) {
             candidate.setId(CANDIDATE_ID.incrementAndGet());
         }
         candidates.put(candidate.getId(), candidate);
+        return candidate;
    }
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         if (user.getId() == 0) {
             user.setId(USER_id.incrementAndGet());
         }
         users.put(user.getId(), user);
+        return user;
     }
 
     @Override

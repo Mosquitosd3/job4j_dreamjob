@@ -137,30 +137,33 @@ public class PsqlStore implements Store {
     }
 
     @Override
-    public void save(Post post) {
+    public Post save(Post post) {
         if (post.getId() == 0 ) {
             createPost(post);
         } else {
             update(post);
         }
+        return post;
     }
 
     @Override
-    public void save(Candidate candidate) {
+    public Candidate save(Candidate candidate) {
         if (candidate.getId() == 0) {
             creatCandidate(candidate);
         } else {
             update(candidate);
         }
+        return candidate;
     }
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         if (user.getId() == 0) {
             createUser(user);
         } else {
             update(user);
         }
+        return user;
     }
 
     private Post createPost(Post post) {

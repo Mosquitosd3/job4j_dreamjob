@@ -22,19 +22,15 @@ public class RegServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         User user = PsqlStore.instOf().findByEmail(email);
-        if (user != null) {
-            req.setAttribute("error", "Такой пользователь уже зарегистрирован.");
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
-        }
-        if (name.length() > 0 && email.length() > 0 && password.length() > 0) {
+        if (user == null) {
             HttpSession sc = req.getSession();
-            PsqlStore.instOf().save(
-                    new User(name, email, password)
+            sc.setAttribute("user",
+                    PsqlStore.instOf().save(new User(name, email, password))
             );
-            sc.setAttribute("user", user);
             resp.sendRedirect(req.getContextPath() + "/posts.do");
         } else {
-            req.getRequestDispatcher("reg.jsp").forward(req, resp);
+            req.setAttribute("error", "Такой пользователь уже зарегистрирован.");
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
         }
     }
 }
