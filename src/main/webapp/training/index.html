@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <h1>My First Bootstrap Page</h1>
+    <p>This is some text.</p>
+</div>
+<form>
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="firstName">Name</label>
+                    <input type="text" class="form-control" id="firstName"
+                           placeholder="Введите свое имя"/>
+                </div>
+                <div class="col">
+                    <label for="lastName">Surname</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Введите свою фамилию"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>
+                    Выберите ваш пол
+                </label>
+                <div class="form-check">
+                    <input class="from-check-input" type="radio" name="gender" id="male">
+                    <label for="male">
+                        Мужской
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="from-check-input" type="radio" name="gender" id="female">
+                    <label for="female">
+                        Женский
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">
+                    Описание
+                </label>
+                <textarea class="form-control" id="description"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" onclick="return validate()">Отправить</button>
+        </form>
+    </div>
+        </div>
+            </div>
+                </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Пользователи
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Фамилия</th>
+                        <th scope="col">Пол</th>
+                        <th scope="col">Описание</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>Мужской</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>Мужской</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>Мужской</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>Мужской</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>Мужской</td>
+                        <td>@mdo</td>
+                    </tr>
+                    </tbody>
+                    <caption>Таблица 1</caption>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
