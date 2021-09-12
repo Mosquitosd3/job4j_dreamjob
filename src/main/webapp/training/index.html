@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function validate() {
+            var fn = $('#firstName').val()
+            var ln = $('#lastName').val()
+            if (fn === '') {
+                alert('First name field must not be empty');
+            } else if (ln === '') {
+                 alert('Last name field must not be empty');
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -15,44 +26,42 @@
     <p>This is some text.</p>
 </div>
 <form>
-    <form>
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <label for="firstName">Name</label>
+                <input type="text" class="form-control" id="firstName"
+                       placeholder="Введите свое имя"/>
+            </div>
+            <div class="col">
+                <label for="lastName">Surname</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Введите свою фамилию"/>
+            </div>
+        </div>
         <div class="form-group">
-            <div class="row">
-                <div class="col">
-                    <label for="firstName">Name</label>
-                    <input type="text" class="form-control" id="firstName"
-                           placeholder="Введите свое имя"/>
-                </div>
-                <div class="col">
-                    <label for="lastName">Surname</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Введите свою фамилию"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>
-                    Выберите ваш пол
+            <label>
+                Выберите ваш пол
+            </label>
+            <div class="form-check">
+                <input class="from-check-input" type="radio" name="gender" id="male">
+                <label for="male">
+                    Мужской
                 </label>
-                <div class="form-check">
-                    <input class="from-check-input" type="radio" name="gender" id="male">
-                    <label for="male">
-                        Мужской
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="from-check-input" type="radio" name="gender" id="female">
-                    <label for="female">
-                        Женский
-                    </label>
-                </div>
             </div>
-            <div class="form-group">
-                <label for="description">
-                    Описание
+            <div class="form-check">
+                <input class="from-check-input" type="radio" name="gender" id="female">
+                <label for="female">
+                    Женский
                 </label>
-                <textarea class="form-control" id="description"></textarea>
             </div>
-            <button class="btn btn-primary" type="submit" onclick="return validate()">Отправить</button>
-        </form>
+        </div>
+        <div class="form-group">
+            <label for="description">
+                Описание
+            </label>
+            <textarea class="form-control" id="description"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit" onclick="return validate()">Отправить</button>
     </div>
         </div>
             </div>
